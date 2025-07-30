@@ -29,6 +29,7 @@ TRANSLATIONS = {
         'admin_send_file': "Будь ласка, надішліть файл з інструкціями.",
         'menu_select_action': "Оберіть дію з меню або напишіть повідомлення.",
         'bot_started': "Бот запущено...",
+        'conversation_reset': "🔄 Контекст розмови скинуто. Почнемо спочатку!",
         'datenschutz_title': "🔒 ЗАХИСТ ПЕРСОНАЛЬНИХ ДАНИХ",
         'datenschutz_content': (
             "Ми серйозно ставимося до захисту ваших персональних даних згідно з GDPR.\n\n"
@@ -124,6 +125,7 @@ TRANSLATIONS = {
         'admin_send_file': "Пожалуйста, пришлите файл с инструкциями.",
         'menu_select_action': "Выберите действие из меню или напишите сообщение.",
         'bot_started': "Бот запущен...",
+        'conversation_reset': "🔄 Контекст разговора сброшен. Начнем сначала!",
         'datenschutz_title': "🔒 ЗАЩИТА ПЕРСОНАЛЬНЫХ ДАННЫХ",
         'datenschutz_content': (
             "Мы серьезно относимся к защите ваших персональных данных согласно GDPR.\n\n"
@@ -215,6 +217,7 @@ TRANSLATIONS = {
         'admin_send_file': "Bitte senden Sie eine Datei mit Anweisungen.",
         'menu_select_action': "Wählen Sie eine Aktion aus dem Menü oder schreiben Sie eine Nachricht.",
         'bot_started': "Bot gestartet...",
+        'conversation_reset': "🔄 Gesprächskontext zurückgesetzt. Lassen Sie uns von vorne anfangen!",
         'datenschutz_title': "🔒 DATENSCHUTZ",
         'datenschutz_content': (
             "Wir nehmen den Schutz Ihrer persönlichen Daten gemäß DSGVO sehr ernst.\n\n"
@@ -306,6 +309,7 @@ TRANSLATIONS = {
         'admin_send_file': "Please send a file with instructions.",
         'menu_select_action': "Select an action from the menu or write a message.",
         'bot_started': "Bot started...",
+        'conversation_reset': "🔄 Conversation context reset. Let's start fresh!",
         'datenschutz_title': "🔒 PRIVACY POLICY",
         'datenschutz_content': (
             "We take the protection of your personal data seriously in accordance with GDPR.\n\n"

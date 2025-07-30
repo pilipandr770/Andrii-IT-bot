@@ -7,7 +7,7 @@ from telegram.ext import (
     ApplicationBuilder, ContextTypes, CommandHandler,
     MessageHandler, ConversationHandler, filters, CallbackQueryHandler
 )
-from openai_client import generate_text_via_assistant, generate_image, generate_image_prompt_via_assistant
+from openai_client import generate_text_via_assistant, generate_text_via_assistant_with_thread, generate_image, generate_image_prompt_via_assistant
 from dotenv import load_dotenv
 from translations import get_text, get_language_buttons
 
@@ -46,6 +46,11 @@ def init_db():
         user_id INTEGER PRIMARY KEY,
         language_code TEXT DEFAULT 'en'
     )''')
+    c.execute('''CREATE TABLE IF NOT EXISTS user_threads (
+        user_id INTEGER PRIMARY KEY,
+        thread_id TEXT NOT NULL,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP
+    )''')
     conn.commit()
     conn.close()
 
@@ -81,6 +86,54 @@ def set_user_language(user_id, language_code):
     conn.commit()
     conn.close()
 
+def get_user_thread_id(user_id):
+    """Получает thread_id для пользователя или создает новый"""
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT thread_id FROM user_threads WHERE user_id = ?", (user_id,))
+    result = c.fetchone()
+    
+    if result:
+        thread_id = result[0]
+        is_new_thread = False
+    else:
+        # Создаем новый thread для пользователя
+        import openai
+        thread = openai.beta.threads.create()
+        thread_id = thread.id
+        c.execute("INSERT INTO user_threads (user_id, thread_id) VALUES (?, ?)", 
+                  (user_id, thread_id))
+        conn.commit()
+        is_new_thread = True
+    
+    conn.close()
+    return thread_id, is_new_thread
+
+def is_thread_empty(thread_id):
+    """Проверяет, пустой ли thread (нет сообщений)"""
+    import openai
+    try:
+        messages = openai.beta.threads.messages.list(thread_id=thread_id, limit=1)
+        return len(messages.data) == 0
+    except:
+        return True
+
+def reset_user_thread(user_id):
+    """Сбрасывает thread пользователя (создает новый)"""
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    
+    # Создаем новый thread
+    import openai
+    thread = openai.beta.threads.create()
+    thread_id = thread.id
+    
+    c.execute("INSERT OR REPLACE INTO user_threads (user_id, thread_id) VALUES (?, ?)", 
+              (user_id, thread_id))
+    conn.commit()
+    conn.close()
+    return thread_id
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     user_lang = get_user_language(user_id)
@@ -94,6 +147,17 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     
     # Если язык установлен, показываем главное меню
+    await show_main_menu(update, context, user_lang)
+
+async def reset_conversation(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Сбросить контекст разговора пользователя"""
+    user_id = update.effective_user.id
+    user_lang = get_user_language(user_id) or 'en'
+    
+    # Создаем новый thread для пользователя
+    reset_user_thread(user_id)
+    
+    await update.message.reply_text(get_text(user_lang, 'conversation_reset'))
     await show_main_menu(update, context, user_lang)
 
 async def show_main_menu(update, context, user_lang):
@@ -196,12 +260,14 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     user_lang = get_user_language(user_id) or 'en'
     
-    global system_instructions
-    prompt_msgs = []
-    if system_instructions:
-        prompt_msgs.append({"role": "system", "content": system_instructions})
+    # Получаем thread_id для пользователя
+    thread_id, is_new_thread = get_user_thread_id(user_id)
     
-    # Добавляем системное сообщение о языке пользователя
+    # Проверяем, пустой ли thread
+    is_first_message = is_new_thread or is_thread_empty(thread_id)
+    
+    # Формируем системную инструкцию с учетом языка
+    global system_instructions
     language_names = {
         'uk': 'украинской',
         'ru': 'русском', 
@@ -209,10 +275,23 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         'en': 'английском'
     }
     lang_instruction = f"Отвечай на {language_names.get(user_lang, 'английском')} языке."
-    prompt_msgs.append({"role": "system", "content": lang_instruction})
-    prompt_msgs.append({"role": "user", "content": user_text})
     
-    reply = generate_text_via_assistant(prompt_msgs)
+    # Объединяем системные инструкции
+    combined_system_instruction = None
+    if is_first_message:
+        if system_instructions:
+            combined_system_instruction = f"{system_instructions}\n\n{lang_instruction}"
+        else:
+            combined_system_instruction = lang_instruction
+    
+    # Используем контекстную функцию
+    reply = generate_text_via_assistant_with_thread(
+        thread_id=thread_id,
+        user_message=user_text,
+        system_instruction=combined_system_instruction,
+        is_first_message=is_first_message
+    )
+    
     await update.message.reply_text(reply)
 
 async def handle_voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -225,16 +304,18 @@ async def handle_voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
     transcript_obj = openai.audio.transcriptions.create(model="whisper-1", file=audio_file)
     transcript = transcript_obj.text
     
-    # Генерируем ответ с учетом языка пользователя
+    # Генерируем ответ с учетом языка пользователя и контекста
     user_id = update.effective_user.id
     user_lang = get_user_language(user_id) or 'en'
     
-    global system_instructions
-    prompt_msgs = []
-    if system_instructions:
-        prompt_msgs.append({"role": "system", "content": system_instructions})
+    # Получаем thread_id для пользователя
+    thread_id, is_new_thread = get_user_thread_id(user_id)
     
-    # Добавляем системное сообщение о языке пользователя
+    # Проверяем, пустой ли thread
+    is_first_message = is_new_thread or is_thread_empty(thread_id)
+    
+    # Формируем системную инструкцию с учетом языка
+    global system_instructions
     language_names = {
         'uk': 'украинской',
         'ru': 'русском', 
@@ -242,10 +323,23 @@ async def handle_voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
         'en': 'английском'
     }
     lang_instruction = f"Отвечай на {language_names.get(user_lang, 'английском')} языке."
-    prompt_msgs.append({"role": "system", "content": lang_instruction})
-    prompt_msgs.append({"role": "user", "content": transcript})
     
-    reply = generate_text_via_assistant(prompt_msgs)
+    # Объединяем системные инструкции
+    combined_system_instruction = None
+    if is_first_message:
+        if system_instructions:
+            combined_system_instruction = f"{system_instructions}\n\n{lang_instruction}"
+        else:
+            combined_system_instruction = lang_instruction
+    
+    # Используем контекстную функцию
+    reply = generate_text_via_assistant_with_thread(
+        thread_id=thread_id,
+        user_message=transcript,
+        system_instruction=combined_system_instruction,
+        is_first_message=is_first_message
+    )
+    
     await update.message.reply_text(reply)
 
 async def contact_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -430,6 +524,7 @@ if __name__ == '__main__':
     
     # Basic handlers
     app.add_handler(CommandHandler('start', start))
+    app.add_handler(CommandHandler('reset', reset_conversation))
     app.add_handler(CommandHandler('set_instructions', set_instructions))
     app.add_handler(CommandHandler('leads', leads_report))
     
