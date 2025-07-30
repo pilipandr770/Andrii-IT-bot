@@ -257,6 +257,22 @@ async def contact_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def contact_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     user_lang = get_user_language(user_id) or 'en'
+    
+    # Проверяем, не нажал ли пользователь кнопку меню
+    text = update.message.text
+    menu_buttons = [
+        get_text(user_lang, 'btn_start'),
+        get_text(user_lang, 'btn_language'),
+        get_text(user_lang, 'btn_datenschutz'),
+        get_text(user_lang, 'btn_agb'),
+        get_text(user_lang, 'btn_impressum')
+    ]
+    
+    if text in menu_buttons:
+        # Завершаем conversation и обрабатываем кнопку меню
+        await handle_menu_buttons(update, context)
+        return ConversationHandler.END
+    
     context.user_data['contact_name'] = update.message.text
     await update.message.reply_text(get_text(user_lang, 'contact_info'))
     return STATE_CONTACT
@@ -264,16 +280,48 @@ async def contact_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def contact_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     user_lang = get_user_language(user_id) or 'en'
+    
+    # Проверяем, не нажал ли пользователь кнопку меню
+    text = update.message.text
+    menu_buttons = [
+        get_text(user_lang, 'btn_start'),
+        get_text(user_lang, 'btn_language'),
+        get_text(user_lang, 'btn_datenschutz'),
+        get_text(user_lang, 'btn_agb'),
+        get_text(user_lang, 'btn_impressum')
+    ]
+    
+    if text in menu_buttons:
+        # Завершаем conversation и обрабатываем кнопку меню
+        await handle_menu_buttons(update, context)
+        return ConversationHandler.END
+    
     context.user_data['contact_info'] = update.message.text
     await update.message.reply_text(get_text(user_lang, 'contact_goal'))
     return STATE_GOAL
 
 async def contact_goal(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    user_lang = get_user_language(user_id) or 'en'
+    
+    # Проверяем, не нажал ли пользователь кнопку меню
+    text = update.message.text
+    menu_buttons = [
+        get_text(user_lang, 'btn_start'),
+        get_text(user_lang, 'btn_language'),
+        get_text(user_lang, 'btn_datenschutz'),
+        get_text(user_lang, 'btn_agb'),
+        get_text(user_lang, 'btn_impressum')
+    ]
+    
+    if text in menu_buttons:
+        # Завершаем conversation и обрабатываем кнопку меню
+        await handle_menu_buttons(update, context)
+        return ConversationHandler.END
+    
     name = context.user_data.get('contact_name')
     info = context.user_data.get('contact_info')
     goal = update.message.text
-    user_id = update.effective_user.id
-    user_lang = get_user_language(user_id) or 'en'
     timestamp = datetime.now().isoformat(sep=' ', timespec='seconds')
     
     try:
@@ -341,18 +389,36 @@ async def handle_menu_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE
     user_id = update.effective_user.id
     user_lang = get_user_language(user_id) or 'en'
     
-    # Проверяем все возможные кнопки на всех языках
-    if text in [get_text(lang, 'btn_start') for lang in ['uk', 'ru', 'de', 'en']]:
+    # Проверяем кнопки только для текущего языка пользователя
+    if text == get_text(user_lang, 'btn_start'):
         return await start(update, context)
-    elif text in [get_text(lang, 'btn_language') for lang in ['uk', 'ru', 'de', 'en']]:
+    elif text == get_text(user_lang, 'btn_language'):
         return await show_language_selection(update, context)
-    elif text in [get_text(lang, 'btn_datenschutz') for lang in ['uk', 'ru', 'de', 'en']]:
+    elif text == get_text(user_lang, 'btn_datenschutz'):
         return await show_datenschutz(update, context)
-    elif text in [get_text(lang, 'btn_agb') for lang in ['uk', 'ru', 'de', 'en']]:
+    elif text == get_text(user_lang, 'btn_agb'):
         return await show_agb(update, context)
-    elif text in [get_text(lang, 'btn_impressum') for lang in ['uk', 'ru', 'de', 'en']]:
+    elif text == get_text(user_lang, 'btn_impressum'):
         return await show_impressum(update, context)
     else:
+        # Если кнопка не распознана, попробуем проверить другие языки
+        # Это для случаев, когда пользователь еще не выбрал язык или изменил язык
+        for lang in ['uk', 'ru', 'de', 'en']:
+            if lang == user_lang:
+                continue  # Уже проверили выше
+            
+            if text == get_text(lang, 'btn_start'):
+                return await start(update, context)
+            elif text == get_text(lang, 'btn_language'):
+                return await show_language_selection(update, context)
+            elif text == get_text(lang, 'btn_datenschutz'):
+                return await show_datenschutz(update, context)
+            elif text == get_text(lang, 'btn_agb'):
+                return await show_agb(update, context)
+            elif text == get_text(lang, 'btn_impressum'):
+                return await show_impressum(update, context)
+        
+        # Если ничего не найдено, показываем сообщение по умолчанию
         await update.message.reply_text(get_text(user_lang, 'menu_select_action'))
 
 if __name__ == '__main__':
@@ -387,6 +453,7 @@ if __name__ == '__main__':
     app.add_handler(conv)
     
     # Menu button handlers для всех кнопок меню (кроме контакта, который обрабатывается в ConversationHandler)
+    # Создаем паттерны для всех языков, но обработка будет приоритетно по языку пользователя
     menu_patterns = []
     for lang in ['uk', 'ru', 'de', 'en']:
         menu_patterns.extend([
