@@ -1,0 +1,23 @@
+services:
+  - type: worker
+    name: telegram-bot
+    runtime: docker
+    dockerfilePath: ./app/Dockerfile
+    dockerContext: ./app
+    plan: starter
+    region: oregon
+    branch: main
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: ADMIN_USER_ID
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_TEXT_ASSISTANT_ID
+        sync: false
+    disk:
+      name: bot-data
+      mountPath: /app/data
+      sizeGB: 1
+    startCommand: python bot.py

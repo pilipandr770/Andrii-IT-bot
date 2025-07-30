@@ -1,0 +1,8 @@
+# Основні бібліотеки
+python-dotenv>=0.21.0          # робота з .env  
+feedparser>=6.0.0              # парсинг RSS  
+openai                 # клієнт OpenAI  
+python-telegram-bot   # Telegram Bot API   
+apscheduler>=3.8.1             # планування завдань  
+aiohttp>=3.8.1                 # асинхронні HTTP-запити  
+requests>=2.28.0               # HTTP-запити  
