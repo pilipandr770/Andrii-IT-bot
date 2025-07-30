@@ -55,7 +55,7 @@ TRANSLATIONS = {
             "• Дані зберігаються в захищеній базі\n"
             "• Не передаємо дані третім особам\n"
             "• Дотримуємося GDPR\n\n"
-            "📧 Питання: contact@example.com"
+            "📧 Питання: pilipandr79@icloud.com"
         ),
         'agb_title': "📋 УМОВИ КОРИСТУВАННЯ",
         'agb_content': (
@@ -73,25 +73,21 @@ TRANSLATIONS = {
             "• Користувач несе відповідальність за свої дії\n"
             "• Ми залишаємо право заблокувати порушників\n"
             "• Сервіс надається \"як є\"\n\n"
-            "📧 Питання: contact@example.com"
+            "📧 Питання: pilipandr79@icloud.com"
         ),
         'impressum_title': "ℹ️ ІМПРЕСУМ",
         'impressum_content': (
             "Neue Zeiten Bot\n\n"
-            "📍 Адреса:\n"
-            "[Ваша адреса]\n"
-            "[Місто, поштовий індекс]\n"
-            "[Країна]\n\n"
-            "📧 Email: contact@example.com\n"
-            "📞 Телефон: +xx xxx xxx xxx\n\n"
-            "👨‍💼 Відповідальна особа:\n"
-            "[Ім'я відповідальної особи]\n\n"
-            "🏢 Реєстраційні дані:\n"
-            "[Номер реєстрації]\n"
-            "[Податковий номер]\n\n"
+            "�‍💼 Відповідальна особа:\n"
+            "Pylypchuk Andrii\n\n"
+            "📧 Email: pilipandr79@icloud.com\n"
+            "📞 Телефон: +49 160 95030120\n\n"
             "⚖️ Відповідальність за контент:\n"
-            "[Ім'я відповідальної особи]\n"
-            "[Адреса]"
+            "Pylypchuk Andrii\n"
+            "Email: pilipandr79@icloud.com\n\n"
+            "🤖 Про бота:\n"
+            "Багатомовний Telegram-бот з інтеграцією OpenAI\n"
+            "Підтримка: українська, російська, німецька, англійська"
         )
     },
     
@@ -149,7 +145,7 @@ TRANSLATIONS = {
             "• Данные хранятся в защищенной базе\n"
             "• Не передаем данные третьим лицам\n"
             "• Соблюдаем GDPR\n\n"
-            "📧 Вопросы: contact@example.com"
+            "📧 Вопросы: pilipandr79@icloud.com"
         ),
         'agb_title': "📋 УСЛОВИЯ ИСПОЛЬЗОВАНИЯ",
         'agb_content': (
@@ -167,25 +163,21 @@ TRANSLATIONS = {
             "• Пользователь несет ответственность за свои действия\n"
             "• Мы оставляем право заблокировать нарушителей\n"
             "• Сервис предоставляется \"как есть\"\n\n"
-            "📧 Вопросы: contact@example.com"
+            "📧 Вопросы: pilipandr79@icloud.com"
         ),
         'impressum_title': "ℹ️ ИМПРЕССУМ",
         'impressum_content': (
             "Neue Zeiten Bot\n\n"
-            "📍 Адрес:\n"
-            "[Ваш адрес]\n"
-            "[Город, почтовый индекс]\n"
-            "[Страна]\n\n"
-            "📧 Email: contact@example.com\n"
-            "📞 Телефон: +xx xxx xxx xxx\n\n"
-            "👨‍💼 Ответственное лицо:\n"
-            "[Имя ответственного лица]\n\n"
-            "🏢 Регистрационные данные:\n"
-            "[Номер регистрации]\n"
-            "[Налоговый номер]\n\n"
+            "�‍💼 Ответственное лицо:\n"
+            "Pylypchuk Andrii\n\n"
+            "📧 Email: pilipandr79@icloud.com\n"
+            "📞 Телефон: +49 160 95030120\n\n"
             "⚖️ Ответственность за контент:\n"
-            "[Имя ответственного лица]\n"
-            "[Адрес]"
+            "Pylypchuk Andrii\n"
+            "Email: pilipandr79@icloud.com\n\n"
+            "🤖 О боте:\n"
+            "Многоязычный Telegram-бот с интеграцией OpenAI\n"
+            "Поддержка: украинский, русский, немецкий, английский"
         )
     },
     
@@ -243,7 +235,7 @@ TRANSLATIONS = {
             "• Daten werden in einer sicheren Datenbank gespeichert\n"
             "• Keine Weitergabe an Dritte\n"
             "• DSGVO-konform\n\n"
-            "📧 Fragen: contact@example.com"
+            "📧 Fragen: pilipandr79@icloud.com"
         ),
         'agb_title': "📋 ALLGEMEINE GESCHÄFTSBEDINGUNGEN",
         'agb_content': (
@@ -261,25 +253,21 @@ TRANSLATIONS = {
             "• Der Benutzer ist für seine Handlungen verantwortlich\n"
             "• Wir behalten uns das Recht vor, Störer zu blockieren\n"
             "• Service wird \"wie besehen\" bereitgestellt\n\n"
-            "📧 Fragen: contact@example.com"
+            "📧 Fragen: pilipandr79@icloud.com"
         ),
         'impressum_title': "ℹ️ IMPRESSUM",
         'impressum_content': (
             "Neue Zeiten Bot\n\n"
-            "📍 Adresse:\n"
-            "[Ihre Adresse]\n"
-            "[Stadt, Postleitzahl]\n"
-            "[Land]\n\n"
-            "📧 E-Mail: contact@example.com\n"
-            "📞 Telefon: +xx xxx xxx xxx\n\n"
-            "👨‍💼 Verantwortliche Person:\n"
-            "[Name der verantwortlichen Person]\n\n"
-            "🏢 Registrierungsdaten:\n"
-            "[Registrierungsnummer]\n"
-            "[Steuernummer]\n\n"
+            "�‍💼 Verantwortliche Person:\n"
+            "Pylypchuk Andrii\n\n"
+            "📧 E-Mail: pilipandr79@icloud.com\n"
+            "📞 Telefon: +49 160 95030120\n\n"
             "⚖️ Verantwortlich für den Inhalt:\n"
-            "[Name der verantwortlichen Person]\n"
-            "[Adresse]"
+            "Pylypchuk Andrii\n"
+            "E-Mail: pilipandr79@icloud.com\n\n"
+            "🤖 Über den Bot:\n"
+            "Mehrsprachiger Telegram-Bot mit OpenAI-Integration\n"
+            "Unterstützte Sprachen: Ukrainisch, Russisch, Deutsch, Englisch"
         )
     },
     
@@ -337,7 +325,7 @@ TRANSLATIONS = {
             "• Data is stored in a secure database\n"
             "• No sharing with third parties\n"
             "• GDPR compliant\n\n"
-            "📧 Questions: contact@example.com"
+            "📧 Questions: pilipandr79@icloud.com"
         ),
         'agb_title': "📋 TERMS OF SERVICE",
         'agb_content': (
@@ -355,25 +343,21 @@ TRANSLATIONS = {
             "• User is responsible for their actions\n"
             "• We reserve the right to block violators\n"
             "• Service provided \"as is\"\n\n"
-            "📧 Questions: contact@example.com"
+            "📧 Questions: pilipandr79@icloud.com"
         ),
         'impressum_title': "ℹ️ IMPRINT",
         'impressum_content': (
             "Neue Zeiten Bot\n\n"
-            "📍 Address:\n"
-            "[Your address]\n"
-            "[City, postal code]\n"
-            "[Country]\n\n"
-            "📧 Email: contact@example.com\n"
-            "📞 Phone: +xx xxx xxx xxx\n\n"
-            "👨‍💼 Responsible person:\n"
-            "[Name of responsible person]\n\n"
-            "🏢 Registration data:\n"
-            "[Registration number]\n"
-            "[Tax number]\n\n"
+            "�‍💼 Responsible person:\n"
+            "Pylypchuk Andrii\n\n"
+            "📧 Email: pilipandr79@icloud.com\n"
+            "📞 Phone: +49 160 95030120\n\n"
             "⚖️ Responsible for content:\n"
-            "[Name of responsible person]\n"
-            "[Address]"
+            "Pylypchuk Andrii\n"
+            "Email: pilipandr79@icloud.com\n\n"
+            "🤖 About the bot:\n"
+            "Multilingual Telegram bot with OpenAI integration\n"
+            "Supported languages: Ukrainian, Russian, German, English"
         )
     }
 }
