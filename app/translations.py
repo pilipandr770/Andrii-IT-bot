@@ -5,24 +5,7 @@ TRANSLATIONS = {
         'welcome_message': (
             "Привіт! Я бот з підтримкою голосових та текстових повідомлень.\n"
             "Надішли мені повідомлення, і я відповім тобі тією ж мовою.\n"
-            "Щоб залишити свої         'impressum_content': (
-            "Andrii-IT Bot\n\n"
-            "👨‍💼             "📧 Privacy Contact: andrii.it.info@gmail.com"erantwortliche Person:\n"
-            "AndriiIT\n\n"
-            "📧 E-Mail: andrii.it.info@gmail.com\n"
-            "📞 Telefon: +4916095030120\n\n"
-            "🏢 Unternehmensstatus:\n"
-            "Steuernummer: DE456902445\n"
-            "Adresse: 65934 Frankfurt am Main, Bergmannweg 16\n\n"
-            "⚖️ Verantwortlich für den Inhalt:\n"
-            "AndriiIT\n"
-            "E-Mail: andrii.it.info@gmail.com\n\n"
-            "🌐 Website: https://rozoom-ki.onrender.com\n\n"
-            "🤖 Über den Bot:\n"
-            "Mehrsprachiger Telegram-Bot mit OpenAI-Integration\n"
-            "Unterstützte Sprachen: Ukrainisch, Russisch, Deutsch, Englisch\n\n"
-            "📅 Letzte Aktualisierung: September 2025"
-        ),користайся кнопкою \"📝 Залишити контакт\" внизу екрану або командою /contact."
+            "Щоб залишити свої контактні дані, скористайся кнопкою \"📝 Залишити контакт\" внизу екрану або командою /contact."
         ),
         'language_selected': "🇺🇦 Вибрано українську мову",
         'choose_language': "🌍 Оберіть мову / Choose language / Wählen Sie Sprache / Выберите язык:",
@@ -289,19 +272,20 @@ TRANSLATIONS = {
         'impressum_content': (
             "Andrii-IT Bot\n\n"
             "👨‍💼 Verantwortliche Person:\n"
-            "Pylypchuk Andrii\n\n"
-            "📧 E-Mail: pilipandr79@icloud.com\n"
-            "📞 Telefon: +49 160 95030120\n\n"
+            "AndriiIT\n\n"
+            "📧 E-Mail: andrii.it.info@gmail.com\n"
+            "📞 Telefon: +4916095030120\n\n"
             "🏢 Unternehmensstatus:\n"
-            "Derzeit in Registrierung in Deutschland\n"
-            "Steuernummer wird nach Abschluss der Registrierung hinzugefügt\n\n"
+            "Steuernummer: DE456902445\n"
+            "Adresse: 65934 Frankfurt am Main, Bergmannweg 16\n\n"
             "⚖️ Verantwortlich für den Inhalt:\n"
-            "Pylypchuk Andrii\n"
-            "E-Mail: pilipandr79@icloud.com\n\n"
+            "AndriiIT\n"
+            "E-Mail: andrii.it.info@gmail.com\n\n"
+            "🌐 Website: https://rozoom-ki.onrender.com\n\n"
             "🤖 Über den Bot:\n"
             "Mehrsprachiger Telegram-Bot mit OpenAI-Integration\n"
             "Unterstützte Sprachen: Ukrainisch, Russisch, Deutsch, Englisch\n\n"
-            "📅 Letzte Aktualisierung: Juli 2025"
+            "📅 Letzte Aktualisierung: September 2025"
         )
     },
     'en': {
