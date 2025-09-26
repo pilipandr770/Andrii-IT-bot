@@ -5,7 +5,24 @@ TRANSLATIONS = {
         'welcome_message': (
             "Привіт! Я бот з підтримкою голосових та текстових повідомлень.\n"
             "Надішли мені повідомлення, і я відповім тобі тією ж мовою.\n"
-            "Щоб залишити свої контактні дані, скористайся кнопкою \"📝 Залишити контакт\" внизу екрану або командою /contact."
+            "Щоб залишити свої         'impressum_content': (
+            "Andrii-IT Bot\n\n"
+            "👨‍💼             "📧 Privacy Contact: andrii.it.info@gmail.com"erantwortliche Person:\n"
+            "AndriiIT\n\n"
+            "📧 E-Mail: andrii.it.info@gmail.com\n"
+            "📞 Telefon: +4916095030120\n\n"
+            "🏢 Unternehmensstatus:\n"
+            "Steuernummer: DE456902445\n"
+            "Adresse: 65934 Frankfurt am Main, Bergmannweg 16\n\n"
+            "⚖️ Verantwortlich für den Inhalt:\n"
+            "AndriiIT\n"
+            "E-Mail: andrii.it.info@gmail.com\n\n"
+            "🌐 Website: https://rozoom-ki.onrender.com\n\n"
+            "🤖 Über den Bot:\n"
+            "Mehrsprachiger Telegram-Bot mit OpenAI-Integration\n"
+            "Unterstützte Sprachen: Ukrainisch, Russisch, Deutsch, Englisch\n\n"
+            "📅 Letzte Aktualisierung: September 2025"
+        ),користайся кнопкою \"📝 Залишити контакт\" внизу екрану або командою /contact."
         ),
         'language_selected': "🇺🇦 Вибрано українську мову",
         'choose_language': "🌍 Оберіть мову / Choose language / Wählen Sie Sprache / Выберите язык:",
@@ -52,7 +69,7 @@ TRANSLATIONS = {
             "• Право на виправлення даних\n"
             "• Право на видалення даних\n"
             "• Право на перенесення даних\n\n"
-            "📧 Контакт з питань конфіденціальності: pilipandr79@icloud.com"
+            "📧 Контакт з питань конфіденціальності: andrii.it.info@gmail.com"
         ),
         'agb_title': "📋 УМОВИ КОРИСТУВАННЯ",
         'agb_content': (
@@ -76,25 +93,26 @@ TRANSLATIONS = {
             "🔄 ЗМІНИ УМОВ:\n"
             "• Умови можуть бути змінені без попереднього повідомлення\n"
             "• Продовження користування означає згоду з новими умовами\n\n"
-            "📧 Питання: pilipandr79@icloud.com"
+            "📧 Питання: andrii.it.info@gmail.com"
         ),
         'impressum_title': "ℹ️ ІМПРЕСУМ",
         'impressum_content': (
             "Andrii-IT Bot\n\n"
             "👨‍💼 Відповідальна особа:\n"
-            "Pylypchuk Andrii\n\n"
-            "📧 Email: pilipandr79@icloud.com\n"
-            "📞 Телефон: +49 160 95030120\n\n"
+            "AndriiIT\n\n"
+            "📧 Email: andrii.it.info@gmail.com\n"
+            "📞 Телефон: +4916095030120\n\n"
             "🏢 Статус компанії:\n"
-            "В процесі реєстрації в Німеччині\n"
-            "Податковий номер буде доданий після завершення реєстрації\n\n"
+            "Податковий номер: DE456902445\n"
+            "Адреса: 65934, Франкфурт-на-Майні, Бергманвег 16\n\n"
             "⚖️ Відповідальність за контент:\n"
-            "Pylypchuk Andrii\n"
-            "Email: pilipandr79@icloud.com\n\n"
+            "AndriiIT\n"
+            "Email: andrii.it.info@gmail.com\n\n"
+            "🌐 Веб-сайт: https://rozoom-ki.onrender.com\n\n"
             "🤖 Про бота:\n"
             "Багатомовний Telegram-бот з інтеграцією OpenAI\n"
             "Підтримка: українська, російська, німецька, англійська\n\n"
-            "📅 Останнє оновлення: липень 2025"
+            "📅 Останнє оновлення: вересень 2025"
         )
     },
     'ru': {
@@ -148,7 +166,7 @@ TRANSLATIONS = {
             "• Право на исправление данных\n"
             "• Право на удаление данных\n"
             "• Право на перенос данных\n\n"
-            "📧 Контакт по вопросам конфиденциальности: pilipandr79@icloud.com"
+            "📧 Контакт по вопросам конфиденциальности: andrii.it.info@gmail.com"
         ),
         'agb_title': "📋 УСЛОВИЯ ИСПОЛЬЗОВАНИЯ", 
         'agb_content': (
@@ -172,25 +190,26 @@ TRANSLATIONS = {
             "🔄 ИЗМЕНЕНИЕ УСЛОВИЙ:\n"
             "• Условия могут быть изменены без предварительного уведомления\n"
             "• Продолжение пользования означает согласие с новыми условиями\n\n"
-            "📧 Вопросы: pilipandr79@icloud.com"
+            "📧 Вопросы: andrii.it.info@gmail.com"
         ),
         'impressum_title': "ℹ️ ИМПРЕССУМ",
         'impressum_content': (
             "Andrii-IT Bot\n\n"
             "👨‍💼 Ответственное лицо:\n"
-            "Pylypchuk Andrii\n\n"
-            "📧 Email: pilipandr79@icloud.com\n"
-            "📞 Телефон: +49 160 95030120\n\n"
+            "AndriiIT\n\n"
+            "📧 Email: andrii.it.info@gmail.com\n"
+            "📞 Телефон: +4916095030120\n\n"
             "🏢 Статус компании:\n"
-            "В процессе регистрации в Германии\n"
-            "Налоговый номер будет добавлен после завершения регистрации\n\n"
+            "Налоговый номер: DE456902445\n"
+            "Адрес: 65934, Франкфурт-на-Майне, Бергманвег 16\n\n"
             "⚖️ Ответственность за контент:\n"
-            "Pylypchuk Andrii\n"
-            "Email: pilipandr79@icloud.com\n\n"
+            "AndriiIT\n"
+            "Email: andrii.it.info@gmail.com\n\n"
+            "🌐 Веб-сайт: https://rozoom-ki.onrender.com\n\n"
             "🤖 О боте:\n"
             "Многоязычный Telegram-бот с интеграцией OpenAI\n"
             "Поддержка: украинский, русский, немецкий, английский\n\n"
-            "📅 Последнее обновление: июль 2025"
+            "📅 Последнее обновление: сентябрь 2025"
         )
     },
     'de': {
@@ -240,7 +259,7 @@ TRANSLATIONS = {
             "• Recht auf Berichtigung der Daten\n"
             "• Recht auf Löschung der Daten\n"
             "• Recht auf Datenübertragbarkeit\n\n"
-            "📧 Datenschutz-Kontakt: pilipandr79@icloud.com"
+            "📧 Datenschutz-Kontakt: andrii.it.info@gmail.com"
         ),
         'agb_title': "📋 ALLGEMEINE GESCHÄFTSBEDINGUNGEN",
         'agb_content': (
@@ -264,7 +283,7 @@ TRANSLATIONS = {
             "🔄 ÄNDERUNG DER BEDINGUNGEN:\n"
             "• Bedingungen können ohne Vorankündigung geändert werden\n"
             "• Fortgesetzte Nutzung bedeutet Zustimmung zu neuen Bedingungen\n\n"
-            "📧 Fragen: pilipandr79@icloud.com"
+            "📧 Fragen: andrii.it.info@gmail.com"
         ),
         'impressum_title': "ℹ️ IMPRESSUM",
         'impressum_content': (
@@ -356,25 +375,26 @@ TRANSLATIONS = {
             "🔄 CHANGES TO TERMS:\n"
             "• Terms may be changed without prior notice\n"
             "• Continued use implies acceptance of new terms\n\n"
-            "📧 Questions: pilipandr79@icloud.com"
+            "📧 Questions: andrii.it.info@gmail.com"
         ),
         'impressum_title': "ℹ️ IMPRINT",
         'impressum_content': (
             "Andrii-IT Bot\n\n"
             "👨‍💼 Responsible Person:\n"
-            "Pylypchuk Andrii\n\n"
-            "📧 Email: pilipandr79@icloud.com\n"
-            "📞 Phone: +49 160 95030120\n\n"
+            "AndriiIT\n\n"
+            "📧 Email: andrii.it.info@gmail.com\n"
+            "📞 Phone: +4916095030120\n\n"
             "🏢 Company Status:\n"
-            "Currently registering in Germany\n"
-            "Tax number will be added after registration completion\n\n"
+            "Tax number: DE456902445\n"
+            "Address: 65934 Frankfurt am Main, Bergmannweg 16\n\n"
             "⚖️ Responsible for Content:\n"
-            "Pylypchuk Andrii\n"
-            "Email: pilipandr79@icloud.com\n\n"
+            "AndriiIT\n"
+            "Email: andrii.it.info@gmail.com\n\n"
+            "🌐 Website: https://rozoom-ki.onrender.com\n\n"
             "🤖 About the Bot:\n"
             "Multilingual Telegram bot with OpenAI integration\n"
             "Supported languages: Ukrainian, Russian, German, English\n\n"
-            "📅 Last updated: July 2025"
+            "📅 Last updated: September 2025"
         )
     }
 }
